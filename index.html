@@ -343,5 +343,35 @@
             </p>
         </footer>
     </div>
+
+    <script>
+        // Disable right-click to prevent inspect element and copy
+
+        document.addEventListener('contextmenu', (event) => {
+            event.preventDefault();
+            alert('Right-click is disabled on this page.');
+        });
+
+        // Disable keyboard shortcuts for developer tools and copy
+
+        document.addEventListener('keydown', (event) => {
+            // Disable F12 (DevTools), Ctrl+Shift+I, Ctrl+Shift+J, and Ctrl+U
+            if (
+                event.key === 'F12' ||
+                (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J')) ||
+                (event.ctrlKey && event.key === 'U')
+            ) {
+                event.preventDefault();
+                alert('Developer tools are disabled on this page.');
+            }
+
+            // Disable Ctrl+C (Copy)
+            if (event.ctrlKey && event.key === 'c') {
+                event.preventDefault();
+                alert('Copying is disabled on this page.');
+            }
+        });
+    </script>
+    
 </body>
 </html>
